@@ -1,0 +1,10 @@
++majors_0
+-wands_1
++cups_2
+-swords_3
++disks_4
+-majors_5
++wands_6
+-cups_7
++swords_8
+-disks_9
