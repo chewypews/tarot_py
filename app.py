@@ -71,10 +71,11 @@ def update_output(n_clicks, question_text, spread_type, manual_cards): ## n_clic
     seed = time_seed(question_text)
 
     ## Header = question text or empty text
-    if(question_text == ""):
-        Q = "Question: " + str(question_text)
-    else:
+    if(question_text == None or question_text == ""):
         Q = ""
+    else:
+        Q = "Question: " + str(question_text)
+    print(Q)
 
     if spread_type == "Celtic cross":
         ## draw or input cards
