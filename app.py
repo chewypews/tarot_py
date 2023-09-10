@@ -115,10 +115,10 @@ def update_output(n_clicks, question_text, spread_type, manual_cards): ## n_clic
                             html.Center(html.Tr([html.Img(src = dash.get_asset_url(cards[3]), height = 110, width=70, style={"transform": "rotate({})".format(orients[3])})]))  
                         ]), 
                         html.Td([
-                            html.Tr(html.Img(src = dash.get_asset_url(cards[6]), height = 110, width=70, style={"transform": "rotate({})".format(orients[6])})),
-                            html.Tr(html.Img(src = dash.get_asset_url(cards[7]), height = 110, width=70, style={"transform": "rotate({})".format(orients[7])})),
+                            html.Tr(html.Img(src = dash.get_asset_url(cards[9]), height = 110, width=70, style={"transform": "rotate({})".format(orients[9])})),
                             html.Tr(html.Img(src = dash.get_asset_url(cards[8]), height = 110, width=70, style={"transform": "rotate({})".format(orients[8])})),
-                            html.Tr(html.Img(src = dash.get_asset_url(cards[9]), height = 110, width=70, style={"transform": "rotate({})".format(orients[9])}))
+                            html.Tr(html.Img(src = dash.get_asset_url(cards[7]), height = 110, width=70, style={"transform": "rotate({})".format(orients[7])})),
+                            html.Tr(html.Img(src = dash.get_asset_url(cards[6]), height = 110, width=70, style={"transform": "rotate({})".format(orients[6])}))
                         ])
                     ])
                 ])
@@ -140,13 +140,13 @@ def update_output(n_clicks, question_text, spread_type, manual_cards): ## n_clic
                 html.Table([
                     html.Tr([
                         html.Td([
-                            html.Center(html.Tr([html.Img(src = dash.get_asset_url(cards[0]), height = 110, width=70, style={"transform": "rotate({})".format(orients[0])})])), 
+                            html.Center(html.Tr([html.Img(src = dash.get_asset_url(cards[1]), height = 110, width=70, style={"transform": "rotate({})".format(orients[1])})])), 
                             html.Tr([
-                                html.Td(html.Img(src = dash.get_asset_url(cards[2]), height = 110, width=70, style={"transform": "rotate({})".format(orients[2])})),
-                                html.Td(html.Img(src = dash.get_asset_url(cards[4]), height = 110, width=70, style={"transform": "rotate({})".format(orients[4])})),
-                                html.Td(html.Img(src = dash.get_asset_url(cards[3]), height = 110, width=70, style={"transform": "rotate({})".format(orients[3])}))
+                                html.Td(html.Img(src = dash.get_asset_url(cards[3]), height = 110, width=70, style={"transform": "rotate({})".format(orients[3])})),
+                                html.Td(html.Img(src = dash.get_asset_url(cards[0]), height = 110, width=70, style={"transform": "rotate({})".format(orients[0])})),
+                                html.Td(html.Img(src = dash.get_asset_url(cards[4]), height = 110, width=70, style={"transform": "rotate({})".format(orients[4])}))
                             ]),
-                            html.Center(html.Tr([html.Img(src = dash.get_asset_url(cards[1]), height = 110, width=70, style={"transform": "rotate({})".format(orients[1])})]))  
+                            html.Center(html.Tr([html.Img(src = dash.get_asset_url(cards[2]), height = 110, width=70, style={"transform": "rotate({})".format(orients[2])})]))  
                         ])
                     ])
                 ])
