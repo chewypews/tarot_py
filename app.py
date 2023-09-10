@@ -40,7 +40,7 @@ server = app.server
 app.layout = html.Div([
     html.Div(html.Center(html.H1("Tarot-py"))),
     html.Div([ ## type of spread 
-        html.Center(dcc.RadioItems(['Celtic cross', 'Simple cross', 'Three card', 'Mini cross', 'One card'], "Celtic cross", id = "spread_type", inline=True, inputStyle={"margin-left": "10px"}))
+        html.Center(dcc.RadioItems(['Celtic cross', 'Simple cross', 'Three card', 'Mini cross', 'One card'], "Celtic cross", id = "spread_type", inline=True, inputStyle={"margin-left": "20px"}))
     ]), 
     html.Br(),
     html.Div([ ## text of question   
