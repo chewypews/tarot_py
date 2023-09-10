@@ -19,6 +19,7 @@ def draw_orientations(n_cards, seed):
 
 ## app
 app = Dash(__name__)
+server = app.server
 
 app.layout = html.Div([
     html.Div(["Question: ", dcc.Input(id='question_text', type='text')]), ## text of question   
@@ -126,4 +127,4 @@ def update_output(n_clicks, question_text, spread_type):
     return div
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run_server(debug=True)
