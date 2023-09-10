@@ -1,4 +1,68 @@
+/* For app */
 body {
     background-color: black;
     color: white
+}
+* {
+    font-family: Courier;
+}
+
+/* For question input */
+.dash-input {
+    background-color: rgb(25, 25, 25) !important;
+    width: 100%;
+    height: 25px;
+    border: 1px solid white;
+}
+
+
+/* For radio buttons */
+input[type='radio']:after {
+    width: 10px;
+    height: 10px;
+    border-radius: 15px;
+    left: -1px;
+    background-color: #d1d3d1;
+    content: '';
+    display: inline-block;
+    visibility: visible;
+    border: 1px solid white;
+}
+
+input[type='radio']:checked:after {
+    width: 10px;
+    height: 10px;
+    border-radius: 15px;
+    left: -1px;
+    background-color: #ffa500;
+    content: '';
+    display: inline-block;
+    visibility: visible;
+    border: 1px solid white;
+}
+
+/* For drop down */
+.Select-control {
+    background-color: rgb(25, 25, 25) !important;
+    color:white;
+}  
+.Select-value-label {
+    color: white !important;
+}
+.Select-menu-outer {
+    background-color: rgb(25, 25, 25);
+    color: white;
+}    
+#langue_dropdown .Select-menu-outer {
+    background-color: rgb(25, 25, 25);
+    color: white;
+}  
+input, select, textarea{
+    color: white;
+}
+
+/* For button */
+.button {
+    background-color: #ffa500;
+    border: 1px solid white;
 }
