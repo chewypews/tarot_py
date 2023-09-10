@@ -132,7 +132,7 @@ def update_output(n_clicks, question_text, spread_type, manual_cards): ## n_clic
         else:
             cards, orients = parse_manual_cards(manual_cards)
             if len(cards) != 5:
-                return html.Div(html.Center(html.H4("Must select 5 cards to manually input this spread", style = {"color": "red"})))
+                return html.Div(html.Center(html.H4("Must select 5 cards to manually input this spread", style = {"color": "#cc0000"})))
         div = html.Div([
             # html.H3("Questions asked: " + str(n_clicks)),
             html.Center(html.H3(Q)),
@@ -160,7 +160,7 @@ def update_output(n_clicks, question_text, spread_type, manual_cards): ## n_clic
         else:
             cards, orients = parse_manual_cards(manual_cards)
             if len(cards) != 3:
-                return html.Div(html.Center(html.H4("Must select 3 cards to manually input this spread", style = {"color": "red"})))
+                return html.Div(html.Center(html.H4("Must select 3 cards to manually input this spread", style = {"color": "#cc0000"})))
         div = html.Div([
             # html.H3("Questions asked: " + str(n_clicks)),
             html.Center(html.H3(Q)),
@@ -182,7 +182,7 @@ def update_output(n_clicks, question_text, spread_type, manual_cards): ## n_clic
         else:
             cards, orients = parse_manual_cards(manual_cards)
             if len(cards) != 2:
-                return html.Div(html.Center(html.H4("Must select 2 cards to manually input this spread", style = {"color": "red"})))
+                return html.Div(html.Center(html.H4("Must select 2 cards to manually input this spread", style = {"color": "#cc0000"})))
         ## fix cross orientation
         if orients[1] == "0deg":
             orients[1] = "90deg"
@@ -209,7 +209,7 @@ def update_output(n_clicks, question_text, spread_type, manual_cards): ## n_clic
         else:
             cards, orients = parse_manual_cards(manual_cards)
             if len(cards) != 1:
-                return html.Div(html.Center(html.H4("Must select 1 card to manually input this spread", style = {"color": "red"})))
+                return html.Div(html.Center(html.H4("Must select 1 card to manually input this spread", style = {"color": "#cc0000"})))
         div = html.Div([
             # html.H3("Questions asked: " + str(n_clicks)),
             html.Center(html.H3(Q)),
