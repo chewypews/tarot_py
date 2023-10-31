@@ -88,9 +88,9 @@ def update_output(n_clicks, question_text, spread_type, manual_cards): ## n_clic
                 return html.Div(html.Center(html.H4("Must select 10 cards to manually input this spread", style = {"color": "#cc0000"})))
         ## fix cross orientation
         if orients[1] == "0deg":
-            orients[1] = "90deg"
-        else:
             orients[1] = "-90deg"
+        else:
+            orients[1] = "90deg"
         div = html.Div([
             # html.H3("Questions asked: " + str(n_clicks)),
             html.Center(html.H3(Q)),
@@ -186,9 +186,9 @@ def update_output(n_clicks, question_text, spread_type, manual_cards): ## n_clic
                 return html.Div(html.Center(html.H4("Must select 2 cards to manually input this spread", style = {"color": "#cc0000"})))
         ## fix cross orientation
         if orients[1] == "0deg":
-            orients[1] = "90deg"
-        else:
             orients[1] = "-90deg"
+        else:
+            orients[1] = "90deg"
         div = html.Div([
             # html.H3("Questions asked: " + str(n_clicks)),
             html.Center(html.H3(Q)),
