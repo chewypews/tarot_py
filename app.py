@@ -40,7 +40,7 @@ server = app.server
 app.layout = html.Div([
     html.Div(html.Center(html.H1("Tarot-py"))),
     html.Div([ ## type of spread 
-        html.Center(dcc.RadioItems(['Celtic cross', 'Simple cross', 'Three card', 'Mini cross', 'One card'], "Celtic cross", id = "spread_type", inline=True, inputStyle={"margin-left": "20px"}))
+        html.Center(dcc.RadioItems(['Celtic cross', 'Cross', 'Three card', 'Mini cross', 'One card'], "Celtic cross", id = "spread_type", inline=True, inputStyle={"margin-left": "20px"}))
     ]), 
     html.Br(),
     html.Div([ ## text of question   
@@ -86,13 +86,15 @@ def update_output(n_clicks, question_text, spread_type, manual_cards): ## n_clic
             cards, orients = parse_manual_cards(manual_cards)
             if len(cards) != 10:
                 return html.Div(html.Center(html.H4("Must select 10 cards to manually input this spread", style = {"color": "#cc0000"})))
+       
         ## fix cross orientation
         if orients[1] == "0deg":
             orients[1] = "-90deg"
         else:
             orients[1] = "90deg"
+
+        ## display cards
         div = html.Div([
-            # html.H3("Questions asked: " + str(n_clicks)),
             html.Center(html.H3(Q)),
             html.Center([
                 html.Table([
@@ -125,35 +127,55 @@ def update_output(n_clicks, question_text, spread_type, manual_cards): ## n_clic
                 ])
             ])
         ])
-    elif spread_type == "Simple cross":
+    
+    elif spread_type == "Cross":
+        
         ## draw or input cards
         if manual_cards == None or len(manual_cards) == 0:
-            cards = draw_cards(5, seed)
-            orients = draw_orientations(5, seed)
+            cards = draw_cards(6, seed)
+            orients = draw_orientations(6, seed)
         else:
             cards, orients = parse_manual_cards(manual_cards)
-            if len(cards) != 5:
-                return html.Div(html.Center(html.H4("Must select 5 cards to manually input this spread", style = {"color": "#cc0000"})))
+            if len(cards) != 6:
+                return html.Div(html.Center(html.H4("Must select 6 cards to manually input this spread", style = {"color": "#cc0000"})))
+        
+        ## fix cross orientation
+        if orients[1] == "0deg":
+            orients[1] = "-90deg"
+        else:
+            orients[1] = "90deg"
+        
+        ## display cards
         div = html.Div([
-            # html.H3("Questions asked: " + str(n_clicks)),
             html.Center(html.H3(Q)),
             html.Center([
                 html.Table([
                     html.Tr([
                         html.Td([
-                            html.Center(html.Tr([html.Img(src = dash.get_asset_url(cards[1]), height = 110, width=70, style={"transform": "rotate({})".format(orients[1])})])), 
+                            html.Center(html.Tr([html.Img(src = dash.get_asset_url(cards[2]), height = 110, width=70, style={"transform": "rotate({})".format(orients[2])})])), 
                             html.Tr([
-                                html.Td(html.Img(src = dash.get_asset_url(cards[3]), height = 110, width=70, style={"transform": "rotate({})".format(orients[3])})),
-                                html.Td(html.Img(src = dash.get_asset_url(cards[0]), height = 110, width=70, style={"transform": "rotate({})".format(orients[0])})),
-                                html.Td(html.Img(src = dash.get_asset_url(cards[4]), height = 110, width=70, style={"transform": "rotate({})".format(orients[4])}))
+                                html.Td(
+                                    html.Img(src = dash.get_asset_url(cards[4]), height = 110, width=70, style={"transform": "rotate({})".format(orients[4]), "position": "relative", "left": "12px"})
+                                ),
+                                html.Td(
+                                    html.Img(src = dash.get_asset_url(cards[0]), height = 110, width=70, style={"transform": "rotate({})".format(orients[0]), "position": "relative", "left": "37px"}), 
+                                ), 
+                                html.Td(
+                                    html.Img(src = dash.get_asset_url(cards[1]), height = 110, width=70, style={"transform": "rotate({})".format(orients[1]), "position": "relative", "left": "-37px"}),
+                                ),
+                                html.Td(
+                                    html.Img(src = dash.get_asset_url(cards[5]), height = 110, width=70, style={"transform": "rotate({})".format(orients[5]), "position": "relative", "left": "-12px"})
+                                )
                             ]),
-                            html.Center(html.Tr([html.Img(src = dash.get_asset_url(cards[2]), height = 110, width=70, style={"transform": "rotate({})".format(orients[2])})]))  
+                            html.Center(html.Tr([html.Img(src = dash.get_asset_url(cards[3]), height = 110, width=70, style={"transform": "rotate({})".format(orients[3])})]))  
                         ])
                     ])
                 ])
             ])
         ])
+    
     elif spread_type == "Three card":
+        
         ## draw or input cards
         if manual_cards == None or len(manual_cards) == 0:
             cards = draw_cards(3, seed)
@@ -162,8 +184,9 @@ def update_output(n_clicks, question_text, spread_type, manual_cards): ## n_clic
             cards, orients = parse_manual_cards(manual_cards)
             if len(cards) != 3:
                 return html.Div(html.Center(html.H4("Must select 3 cards to manually input this spread", style = {"color": "#cc0000"})))
+        
+        ## display cards
         div = html.Div([
-            # html.H3("Questions asked: " + str(n_clicks)),
             html.Center(html.H3(Q)),
             html.Center([
                 html.Table([
@@ -175,7 +198,9 @@ def update_output(n_clicks, question_text, spread_type, manual_cards): ## n_clic
                 ])
             ])
         ])
+
     elif spread_type == "Mini cross":
+        
         ## draw or input cards
         if manual_cards == None or len(manual_cards) == 0:
             cards = draw_cards(2, seed)
@@ -184,13 +209,15 @@ def update_output(n_clicks, question_text, spread_type, manual_cards): ## n_clic
             cards, orients = parse_manual_cards(manual_cards)
             if len(cards) != 2:
                 return html.Div(html.Center(html.H4("Must select 2 cards to manually input this spread", style = {"color": "#cc0000"})))
+        
         ## fix cross orientation
         if orients[1] == "0deg":
             orients[1] = "-90deg"
         else:
             orients[1] = "90deg"
+        
+        ## display cards
         div = html.Div([
-            # html.H3("Questions asked: " + str(n_clicks)),
             html.Center(html.H3(Q)),
             html.Center([
                 html.Td(
@@ -203,6 +230,7 @@ def update_output(n_clicks, question_text, spread_type, manual_cards): ## n_clic
         ])
     
     elif spread_type == "One card":
+        
         ## draw or input cards
         if manual_cards == None or len(manual_cards) == 0:
             cards = draw_cards(1, seed)
@@ -211,8 +239,9 @@ def update_output(n_clicks, question_text, spread_type, manual_cards): ## n_clic
             cards, orients = parse_manual_cards(manual_cards)
             if len(cards) != 1:
                 return html.Div(html.Center(html.H4("Must select 1 card to manually input this spread", style = {"color": "#cc0000"})))
+        
+        ## display cards
         div = html.Div([
-            # html.H3("Questions asked: " + str(n_clicks)),
             html.Center(html.H3(Q)),
             html.Center([
                 html.Img(src = dash.get_asset_url(cards[0]), height = 220, width=140, style={"transform": "rotate({})".format(orients[0])})
