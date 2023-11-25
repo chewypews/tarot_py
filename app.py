@@ -9,6 +9,7 @@ from dash import Dash, dcc, html, Input, Output, State, callback
 ## constants
 cards = [y + str(x) for x in range(1,15) for y in ["wands_", "cups_", "swords_", "disks_"]] + ["majors_" + str(x) for x in range(0,22)]
 cards_oriented = [x + "-upright" for x in cards] + [x + "-reversed" for x in cards]
+extras = ["back-upright", "back-reversed", "extras_1-upright", "extras_1-reversed", "extras_2-upright", "extras_2-reversed"]
 
 ## functions
 def time_seed(seed = None):
@@ -50,7 +51,7 @@ app.layout = html.Div([
     html.Br(),
     html.Div([ ## Manual input cards
         "CARDS (optional; manually choose cards)", 
-        dcc.Dropdown(cards_oriented,  id = "manual_cards", multi=True)
+        dcc.Dropdown(cards_oriented + extras,  id = "manual_cards", multi=True) ## extras only available in manual draw
     ]), 
     html.Br(),
     html.Button('... Go!', id='button_go', style = {"background-color": '#ffa500', "border": "1px solid white"}), ## button
